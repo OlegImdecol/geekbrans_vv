@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta char set="UTF-8">
+<title> Oleg Imdecol </title>
+</head>
+<body>
+<b> Игра Блэк Джек <b>
+<script>
+// Функция случайного числа
+function getRandomInt(min,max) {
+	return ( Math.floor(Math.random() * (max - min + 1)) + min );
+}
+// Функция получения карты
+function getCard() {
+	var cards = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+	return cards[getRandomInt(0, cards.length - 1)];
+}
+// Функция подсчёта очков у Игрока
+function getSum(arr) {
+	var i, sum = 0;// Вспомагательная переменая
+	for(i = 0; i < arr.length; i++ ){
+	if (isNaN(parseInt(arr[i]))){ sum = sum + 10;}
+		else { sum = sum + parseInt(arr[i]);}
+	}
+	return sum;
+}
+// Основная программа 
+
+var dealer = [getCard()];
+var player = [getCard(), getCard()];
+alert('Дилер ' + dealer.join(' ') + ' Игрок ' + player.join(' '));
+var sum_player = getSum(player);
+alert('У Игрока : ' + sum_player + ' очков');
+
+// Конец Программы
+</script>
+</body>
+</html>
